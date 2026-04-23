@@ -20,3 +20,19 @@ No existe el protocolo perfecto. Siempre debo elegir entre:
 2. **Consumo** (Batería).
 3. **Ancho de Banda** (Velocidad de datos).
 *Ejemplo: LoRaWAN es Rey en alcance/consumo, pero falla en ancho de banda.*
+
+### 🔧 Ingeniería de Datos: Tipado y Empaquetamiento
+Para maximizar la eficiencia en la transmisión de datos (Payload Optimization):
+
+1. **Uso de C++ Estándar (`stdint.h`):** Evitar `int` genéricos. Usar `uint8_t` para ahorrar 3 bytes por variable en datos pequeños (0-250).
+
+2. **Estructuras Empaquetadas:** La directiva `__attribute__((packed))` elimina el *padding* de memoria, reduciendo el tamaño del paquete a enviar por la red.
+
+3. **Serialización Binaria:** Enviar el `struct` directamente como un chorro de bytes (*byte stream*) en lugar de convertirlo a texto (JSON). 
+
+**Comparativa de eficiencia:**
+| Formato | Tamaño (Aprox) | Consumo Radio | Coste Nube |
+| :--- | :--- | :--- | :--- |
+| JSON | ~50 bytes | Alto | Alto |
+| Binario (Packed) | 6 bytes | Muy Bajo | Mínimo |
+
