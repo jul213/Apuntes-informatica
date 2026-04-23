@@ -55,3 +55,8 @@ Es el protocolo que define cómo se organizan los datos para que el servidor los
 > **Directiva 2026:** El uso de **TLS 1.3** (Transport Layer Security) es obligatorio. 
 - Proporciona cifrado punto a punto, integridad de datos y autenticación. 
 - Sin TLS, cualquier nodo intermedio puede leer mi "Telemetria" y hackear el actuador.
+
+### 4. Diagnóstico: Heartbeat vs Last Will
+Para saber si mi sistema está funcionando, implemento:
+- **Heartbeat:** Un mensaje pequeño enviado cada X tiempo para decir "sigo vivo".
+- **Last Will (LWT):** Una función de MQTT donde el servidor avisa automáticamente si el dispositivo se desconecta bruscamente.
