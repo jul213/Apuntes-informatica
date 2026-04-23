@@ -1,67 +1,44 @@
-# 💻 Tech Knowledge Base
+# 💻 My Tech Brain Dump
 
-> "The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie
+> "No necesito saberlo todo, solo necesito saber dónde encontrarlo." 🧠✨
 
-![Banner Tech](https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000)
-
-## 🌐 Resumen del Repositorio
-Este repositorio contiene mi documentación personal, hojas de trucos (cheat sheets) y ejercicios prácticos sobre el ecosistema de la informática. Está diseñado para servir como referencia rápida y guía de estudio.
+Este es mi repositorio personal de apuntes. Aquí centralizo todo lo que voy aprendiendo sobre el mundo tech para tenerlo a un clic de distancia cuando el cerebro me falle. 
 
 ---
 
-## 📂 Estructura de Carpetas
+## 🛠️ Áreas de Estudio
 
-| Carpeta | Temas Principales | Estado |
-| :--- | :--- | :---: |
-| `📂 programación` | Lógica, Algoritmos, Frameworks (Python, JS, C++) | 🟢 |
-| `📂 iot` | Sensores, Protocolos (MQTT, HTTP), Arduino/ESP32 | 🟡 |
-| `📂 ciberseguridad` | Pentesting, Redes, Análisis de Vulnerabilidades | 🟡 |
-| `📂 big-data` | Hadoop, Spark, ETL, Análisis de Datos | 🔴 |
-| `📂 devops` | CI/CD, Docker, Kubernetes, Automatización | 🟡 |
+A continuación, el acceso directo a mis módulos de aprendizaje. Cada carpeta contiene sus propias notas, comandos rápidos y recursos.
 
----
-
-## 🚀 Módulos de Aprendizaje
-
-### 👨‍💻 Programación
-* **Estructuras de Datos:** Pilas, colas, árboles y grafos.
-* **Patrones de Diseño:** Singleton, Factory, Observer.
-* **Web Stack:** Frontend (React) y Backend (Node.js/Django).
-
-### 📡 Internet of Things (IoT)
-* **Hardware:** Manejo de microcontroladores y periféricos.
-* **Conectividad:** Implementación de protocolos de comunicación ligera.
-* **Edge Computing:** Procesamiento de datos en el dispositivo.
-
-### 🛡️ Ciberseguridad
-* **Ethical Hacking:** Fases del reconocimiento y explotación.
-* **Networking:** Configuración de firewalls y monitoreo de tráfico.
-* **Criptografía:** Conceptos de hashing y cifrado simétrico/asimétrico.
-
-### 📊 Big Data & DevOps
-* **Infraestructura como Código:** Terraform y Ansible.
-* **Pipeline CI/CD:** Automatización de despliegues en GitHub Actions.
-* **Data Lake:** Gestión de grandes volúmenes de datos no estructurados.
+* **🛡️ [Ciberseguridad](./ciberseguridad)** - Notas sobre redes, exploits y defensa.
+* **📡 [IoT](./iot)** - Conexiones, sensores y microcontroladores.
+* **⚙️ [DevOps](./devops)** - Automatización, contenedores y despliegue.
+* **📊 [Big Data](./big-data)** - Procesamiento y análisis de datos a gran escala.
+* **👨‍💻 [Programación](./programacion)** - Lógica, lenguajes y buenas prácticas.
 
 ---
 
-## 🛠️ Stack Tecnológico
-Para mantener estos apuntes uso:
-* **Markdown + Mermaid.js:** Para diagramas de flujo y arquitectura.
-* **Badges:** Para identificar tecnologías rápidamente.
-* **Visual Studio Code:** Editor principal con extensiones de previsualización.
+## 📌 Pendientes y Enfoque Actual
+- [ ] Revisar conceptos de la última carpeta creada.
+- [ ] Limpiar código de ejemplos.
+- [ ] Añadir trucos de terminal que siempre olvido.
 
 ---
 
-## 📈 Progreso General
-![Mi Progreso](https://geocities.rest/v1/badge/progress?label=Completado&pct=45&color=7159c1)
+## 🚀 Guía de Uso (Para mí)
+1. **Organización:** Mantener siempre un archivo `README.md` dentro de cada carpeta para explicar de qué va ese tema específico.
+2. **Formato:** Usar bloques de código para los comandos de terminal (`bash` o `zsh`).
+3. **Diagramas:** Si algo es muy complejo, mejor dibujar un diagrama rápido con Mermaid.
 
 ---
-<p align="center">
-  <b>¿Quieres contribuir?</b> <br>
-  Siéntete libre de hacer un Fork o abrir un Issue si encuentras algún error en los conceptos.
-</p>
 
-<p align="center">
-  Desarrollado con ⚡ por <a href="https://github.com/tu_usuario"><b>TuNombre</b></a>
+## 🛠️ Herramientas de Estudio
+- **Editor:** VS Code / Obsidian.
+- **Formato:** Markdown Puro.
+- **Terminal:** ZSH / Oh My Zsh.
+
+---
+<p align="right">
+  <i>Última actualización: Abril 2026 </i><br>
+  <b>Stay focused, my friend.</b> ⚡
 </p>
