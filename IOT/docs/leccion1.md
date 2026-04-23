@@ -36,3 +36,22 @@ Para maximizar la eficiencia en la transmisión de datos (Payload Optimization):
 | JSON | ~50 bytes | Alto | Alto |
 | Binario (Packed) | 6 bytes | Muy Bajo | Mínimo |
 
+## 🏗️ Arquitectura de Comunicación (El Modelo de Capas)
+
+Para entender cómo viaja la información desde mi sensor hasta la nube, utilizo la **Analogía de la Caja y el Camión**:
+
+### 1. Capa de Transporte (El Camión 🚛)
+Es el medio que mueve los datos. No le importa qué hay dentro, solo que llegue a su destino.
+- **TCP (Transmission Control Protocol):** Conexión segura y verificada. Si un paquete se pierde, el camión vuelve a por él. (Usado en MQTT).
+- **UDP (User Datagram Protocol):** Rápido y ligero. Envía el paquete y no mira atrás. Ideal para redes inestables o satelitales. (Usado en CoAP).
+
+### 2. Capa de Aplicación (El Contenido de la Caja 📦)
+Es el protocolo que define cómo se organizan los datos para que el servidor los entienda.
+- **MQTT:** Estándar de la industria. Basado en Publicación/Suscripción.
+- **HTTP:** Pesado, pero compatible con todo el ecosistema web.
+- **CoAP:** El "HTTP" para dispositivos con recursos muy limitados.
+
+### 3. Capa de Seguridad (El Blindaje 🔐)
+> **Directiva 2026:** El uso de **TLS 1.3** (Transport Layer Security) es obligatorio. 
+- Proporciona cifrado punto a punto, integridad de datos y autenticación. 
+- Sin TLS, cualquier nodo intermedio puede leer mi "Telemetria" y hackear el actuador.
