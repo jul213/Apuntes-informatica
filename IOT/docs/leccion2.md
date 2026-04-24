@@ -28,3 +28,42 @@ Para que un dispositivo IoT dure años con una batería, el código debe ser "pa
 ## 5. Protecciones Esenciales
 - **Resistencia Pull-up/Pull-down:** Garantiza que un pin digital no esté "flotando" (recogiendo ruido electromagnético) cuando no hay nada conectado.
 - **Capacitores de Desacoplo:** "Tanques" de energía minúsculos colocados cerca del chip para evitar reinicios por caídas bruscas de voltaje.
+
+## 📡 6. Protocolos de Comunicación Local (Buses de Datos)
+
+En el diseño de hardware IoT, la elección del bus determina la velocidad del sistema y la complejidad del cableado.
+
+### 🔵 I2C (Inter-Integrated Circuit) - "El Bus Eficiente"
+Protocolo síncrono de **dos hilos** diseñado para conectar múltiples periféricos de baja/media velocidad.
+
+- **Líneas de conexión:**
+    - **SDA (Serial Data):** Transmisión bidireccional de datos.
+    - **SCL (Serial Clock):** Sincronización generada por el Maestro.
+- **Arquitectura:** Maestro-Esclavo. El maestro gestiona el tráfico mediante **Direccionamiento** (cada sensor tiene una ID única, ej: `0x3C`).
+- **Ventaja:** Ahorro masivo de pines. Puedes conectar hasta 128 dispositivos usando solo 2 cables.
+- **Uso ideal:** Sensores de temperatura, presión, pantallas OLED.
+
+### 🔴 SPI (Serial Peripheral Interface) - "El Bus de Alta Velocidad"
+Protocolo síncrono de **cuatro hilos** (mínimo) para transferencia de datos masivos sin retardo.
+
+- **Líneas de conexión:**
+    - **MOSI (Master Out Slave In):** Salida de datos del maestro.
+    - **MISO (Master In Slave Out):** Entrada de datos al maestro.
+    - **SCK (Serial Clock):** Reloj de sincronización.
+    - **CS/SS (Chip Select):** Un cable extra por cada esclavo para "activarlo".
+- **Características:**
+    - **Full-Dúplex:** Envía y recibe datos al mismo tiempo.
+    - **Velocidad:** Muy alta (80 MHz+). Supera con creces al I2C.
+- **Uso ideal:** Lectores de tarjetas SD, pantallas TFT a color, módulos Ethernet o Cámaras.
+
+---
+
+### ⚖️ Comparativa Rápida para Toma de Decisiones
+
+| Característica | I2C | SPI |
+| :--- | :--- | :--- |
+| **Hilos necesarios** | 2 | 4 + N (esclavos) |
+| **Velocidad** | Media (hasta 3.4 MHz) | Muy Alta (100 MHz+) |
+| **Multiesclavo** | Sí (por dirección software) | Sí (por cable hardware CS) |
+| **Distancia** | Muy corta (< 2m) | Muy corta (< 1m) |
+| **Simplicidad** | Alta (fácil de cablear) | Baja (muchos cables) |
