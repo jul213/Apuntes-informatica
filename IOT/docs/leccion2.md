@@ -109,3 +109,10 @@ $$V = (2048 \times 3.3) / 4096 = 1.65V$$
 
 ### C. El Factor de la Batería (Divisor de Tensión)
 Si mides una batería de 12V con un pin de 3.3V, usas resistencias. Para saber el voltaje real de la batería, multiplicas el resultado anterior por el **factor de división**.
+
+### D. ¿Cómo identificar la resolución?
+La resolución es la capacidad del ADC para dividir el voltaje de entrada. 
+- **Sistemas de 10 bits (Arduino):** Dividen el voltaje en 1,024 partes. Menos precisión, pero más estables frente al ruido.
+- **Sistemas de 12 bits (ESP32):** Dividen el voltaje en 4,096 partes. Mucha más sensibilidad (detectan cambios de voltaje más pequeños).
+
+**REGLA DE ORO:** Si el valor devuelto por `analogRead()` nunca supera 1023, usa 1024 en tu fórmula. Si llega hasta 4095, usa 4096.
