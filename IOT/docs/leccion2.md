@@ -67,3 +67,26 @@ Protocolo síncrono de **cuatro hilos** (mínimo) para transferencia de datos ma
 | **Multiesclavo** | Sí (por dirección software) | Sí (por cable hardware CS) |
 | **Distancia** | Muy corta (< 2m) | Muy corta (< 1m) |
 | **Simplicidad** | Alta (fácil de cablear) | Baja (muchos cables) |
+
+### 🟢 UART (Universal Asynchronous Receiver-Transmitter) - "El Protocolo Universal"
+No es un bus como tal, sino una comunicación **punto a punto** (de uno a uno) sin necesidad de reloj compartido.
+
+- **Líneas de conexión:** - **TX (Transmit):** Envío de datos.
+    - **RX (Receive):** Recepción de datos.
+    - *Importante:* El TX de uno va al RX del otro.
+- **Características:** - **Asíncrono:** No hay cable de reloj; ambos dispositivos deben acordar la misma velocidad (**Baud Rate**).
+    - **Simplicidad máxima:** Solo 2 cables para comunicación total.
+- **Uso ideal:** Depuración (Monitor Serie), Módems GPS, módulos Bluetooth (HC-05/06) y comunicación entre dos microcontroladores.
+
+### 🟡 1-Wire (Dallas Semiconductor) - "El Bus de Larga Distancia"
+Diseñado para situaciones donde quieres ahorrar cables al máximo y tienes sensores esparcidos por una casa o industria.
+
+- **Líneas de conexión:** **¡Solo 1 cable!** (Más tierra). Los datos y la alimentación pueden ir por el mismo hilo (*Parasite Power*).
+- **Ventaja:** Puede cubrir distancias de hasta **100 metros**, algo que I2C o SPI jamás podrían hacer sin quemarse.
+- **Uso ideal:** El famoso sensor de temperatura **DS18B20**.
+
+### 🏗️ CAN Bus (Controller Area Network) - "El Estándar Industrial/Automotriz"
+Si el sistema debe ser inmune al ruido eléctrico extremo (motores, fábricas).
+
+- **Características:** Diferencial (usa dos cables que se comparan entre sí para evitar interferencias). Es extremadamente robusto.
+- **Uso ideal:** Sensores en motores de coches, maquinaria pesada y robótica avanzada.
