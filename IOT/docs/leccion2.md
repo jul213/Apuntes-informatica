@@ -90,3 +90,22 @@ Si el sistema debe ser inmune al ruido eléctrico extremo (motores, fábricas).
 
 - **Características:** Diferencial (usa dos cables que se comparan entre sí para evitar interferencias). Es extremadamente robusto.
 - **Uso ideal:** Sensores en motores de coches, maquinaria pesada y robótica avanzada.
+
+## 7. La Matemática del ADC (Cálculo de Voltaje)
+
+Para convertir lo que lee el microcontrolador en voltajes reales, seguimos tres pasos:
+
+### A. Calcular la Resolución (Los "escalones")
+La resolución depende de los bits del ADC ($2^n$):
+- **10 bits:** $2^{10} = 1024$ niveles (0 a 1023).
+- **12 bits (ESP32):** $2^{12} = 4096$ niveles (0 a 4095).
+
+### B. La Fórmula Maestra
+Para saber el voltaje que hay en un pin:
+$$V_{real} = \frac{Lectura\_ADC \times V_{max}}{Resolución}$$
+
+*Ejemplo: Si el ESP32 (3.3V) lee 2048 en un ADC de 12 bits:*
+$$V = (2048 \times 3.3) / 4096 = 1.65V$$
+
+### C. El Factor de la Batería (Divisor de Tensión)
+Si mides una batería de 12V con un pin de 3.3V, usas resistencias. Para saber el voltaje real de la batería, multiplicas el resultado anterior por el **factor de división**.
